@@ -12,13 +12,11 @@ struct MatchesView: View {
     private let viewModel: MatchesViewModel = MatchesViewModel()
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Image(.background)
+                .resizable()
+                .ignoresSafeArea(edges: .all)
         }
-        .padding()
     }
 }
 
