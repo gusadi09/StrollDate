@@ -44,7 +44,7 @@ struct ProgressProfileView: View {
                 
                 VStack {
                     Text(progressText)
-                        .font(.system(size: 10.8))
+                        .font(.proximaNova(.bold, size: 10.8))
                         .bold()
                         .foregroundColor(.white)
                         .padding(.horizontal, 13.5)

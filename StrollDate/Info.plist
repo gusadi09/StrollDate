@@ -4,11 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>proximanova_bold.ttf</string>
-		<string>proximanova_boldit.ttf</string>
-		<string>proximanova_light.ttf</string>
-		<string>proximanova_lightit.ttf</string>
-		<string>proximanova_regular.ttf</string>
+		<string>proximanova-bold.ttf</string>
+		<string>proximanova-boldit.ttf</string>
+		<string>proximanova-light.ttf</string>
+		<string>proximanova-lightit.ttf</string>
+		<string>proximanova-regular.ttf</string>
 	</array>
 </dict>
 </plist>

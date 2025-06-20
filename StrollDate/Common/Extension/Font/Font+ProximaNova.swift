@@ -9,12 +9,12 @@ import SwiftUI
 
 extension Font {
     enum ProximaNovaStyle: String {
-        case blackItalic = "proximanova_blackit"
-        case bold = "proximanova_bold"
-        case boldItalic = "proximanova_boldit"
-        case lightItalic = "proximanova_lightit"
-        case light = "proximanova_light"
-        case regular = "proximanova_regular"
+        case blackItalic = "proximanova-blackit"
+        case bold = "proximanova-bold"
+        case boldItalic = "proximanova-boldit"
+        case lightItalic = "proximanova-lightit"
+        case light = "proximanova-light"
+        case regular = "proximanova-regular"
     }
     
     static func proximaNova(_ type: ProximaNovaStyle, size: CGFloat) -> Font {
