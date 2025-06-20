@@ -9,11 +9,10 @@ import SwiftUI
 
 extension Font {
     enum ProximaNovaStyle: String {
-        case black = "proximanova_black"
         case blackItalic = "proximanova_blackit"
         case bold = "proximanova_bold"
         case boldItalic = "proximanova_boldit"
-        case extraBold = "proximanova_extrabold"
+        case lightItalic = "proximanova_lightit"
         case light = "proximanova_light"
         case regular = "proximanova_regular"
     }
