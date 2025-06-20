@@ -19,12 +19,23 @@ struct MatchesView: View {
             
             VStack{
                 MatchesHeaderView()
-                    .padding()
-                
+                    .padding(.horizontal)
+                    .padding(.vertical, 5)
                 
                 List {
-                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack(spacing: 20) {
+                            ForEach(viewModel.turnSampleData) { data in
+                                TurnCard(with: data)
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    .listRowBackground(Color.clear)
                 }
+                .listStyle(.plain)
             }
         }
     }

@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct TurnModel {
+struct TurnModel: Identifiable {
+    let id = UUID()
     let name: String
     let profilePhoto: Image
     let age: UInt
