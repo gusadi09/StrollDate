@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MatchesView: View {
     
-    private let viewModel: MatchesViewModel = MatchesViewModel()
+    @ObservedObject private var viewModel: MatchesViewModel = MatchesViewModel()
     
     var body: some View {
         ZStack {
@@ -22,20 +22,38 @@ struct MatchesView: View {
                     .padding(.horizontal)
                     .padding(.vertical, 5)
                 
-                List {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack(spacing: 20) {
-                            ForEach(viewModel.turnSampleData) { data in
-                                TurnCard(with: data)
+                ScrollView(.vertical, showsIndicators: false) {
+                    LazyVStack(alignment: .leading, spacing: 25, pinnedViews: [.sectionHeaders]) {
+                        Section {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 20) {
+                                    ForEach(viewModel.turnSampleData) { data in
+                                        TurnCard(with: data)
+                                    }
+                                }
+                                .padding(.horizontal)
+                                .padding(.top, 5)
                             }
                         }
-                        .padding(.horizontal)
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        .listRowBackground(Color.clear)
+                        
+                        Section {
+                            ForEach(0...100, id: \.self) { _ in
+                                Text("\(viewModel.selectedPage)")
+                                    .foregroundStyle(.white)
+                                    .padding(.horizontal)
+                            }
+                        } header: {
+                            ChatHeaderSection()
+                                .environmentObject(viewModel)
+                        }
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        .listRowBackground(Color.clear)
                     }
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
-                    .listRowBackground(Color.clear)
                 }
-                .listStyle(.plain)
             }
         }
     }

@@ -34,4 +34,7 @@ final class MatchesViewModel: ObservableObject {
             isActiveMove: true
         )
     ]
+    let pages: [MatchesPageType] = [.chats, .pending]
+    
+    @Published var selectedPage: MatchesPageType = .chats
 }
