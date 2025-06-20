@@ -16,6 +16,16 @@ struct MatchesView: View {
             Image(.background)
                 .resizable()
                 .ignoresSafeArea(edges: .all)
+            
+            VStack{
+                MatchesHeaderView()
+                    .padding()
+                
+                
+                List {
+                    
+                }
+            }
         }
     }
 }
