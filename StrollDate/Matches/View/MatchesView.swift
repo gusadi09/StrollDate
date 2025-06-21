@@ -17,13 +17,16 @@ struct MatchesView: View {
                 .resizable()
                 .ignoresSafeArea(edges: .all)
             
+            LinearGradient(colors: [.clear, .black], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea(edges: .all)
+            
             VStack{
                 MatchesHeaderView()
                     .padding(.horizontal)
                     .padding(.vertical, 5)
                 
                 ScrollView(.vertical, showsIndicators: false) {
-                    LazyVStack(alignment: .leading, spacing: 25, pinnedViews: [.sectionHeaders]) {
+                    LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
                         Section {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 20) {
@@ -33,26 +36,37 @@ struct MatchesView: View {
                                 }
                                 .padding(.horizontal)
                                 .padding(.top, 5)
+                                .padding(.bottom, 25)
                             }
                         }
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
-                        .listRowBackground(Color.clear)
                         
-                        Section {
-                            ForEach(0...100, id: \.self) { _ in
-                                Text("\(viewModel.selectedPage)")
-                                    .foregroundStyle(.white)
-                                    .padding(.horizontal)
+                        Group {
+                            Section {
+                                switch viewModel.selectedPage {
+                                case .chats:
+                                    ForEach(viewModel.chatSampleData, id: \.id) { item in
+                                        ChatCard(item: item)
+                                            .padding(.bottom, 10)
+                                            .padding(.top, 15)
+                                            .listRowBackground(Color.black)
+                                            .listRowSeparatorTint(Color(._292_B_2_E))
+                                            .listStyle(.plain)
+                                    }
+                                case .pending:
+                                    Text("Pending")
+                                        .font(.proximaNova(.regular, size: 14))
+                                        .foregroundStyle(.white)
+                                        .padding()
+                                }
+                                
+                            } header: {
+                                ChatHeaderSection()
+                                    .environmentObject(viewModel)
                             }
-                        } header: {
-                            ChatHeaderSection()
-                                .environmentObject(viewModel)
                         }
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
-                        .listRowBackground(Color.clear)
+                        .background(Color.black.ignoresSafeArea())
                     }
+                    
                 }
             }
         }

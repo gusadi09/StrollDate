@@ -18,8 +18,9 @@ struct TurnCard: View {
         ZStack {
             item.profilePhoto
                 .resizable()
+                .scaledToFill()
                 .frame(width: 145, height: 205)
-                .blur(radius: 20)
+                .blur(radius: item.isMadeMove && item.isActiveMove ? 0 : 20)
                 .overlay {
                     LinearGradient(
                         colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
@@ -54,9 +55,11 @@ struct TurnCard: View {
                 
                 Spacer()
                 
-                Text("Tap to answer")
-                    .font(.proximaNova(.bold, size: 10))
-                    .foregroundStyle(Color(.A_8_AFB_7))
+                if !(item.isMadeMove && item.isActiveMove) {
+                    Text("Tap to answer")
+                        .font(.proximaNova(.bold, size: 10))
+                        .foregroundStyle(Color(.A_8_AFB_7))
+                }
                 
                 Spacer()
                 
