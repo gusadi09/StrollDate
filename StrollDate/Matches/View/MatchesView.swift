@@ -20,7 +20,7 @@ struct MatchesView: View {
             LinearGradient(colors: [.clear, .black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea(edges: .all)
             
-            VStack{
+            VStack {
                 MatchesHeaderView()
                     .padding(.horizontal)
                     .padding(.vertical, 5)
@@ -68,6 +68,8 @@ struct MatchesView: View {
                     }
                     
                 }
+                    
+                
             }
         }
     }
