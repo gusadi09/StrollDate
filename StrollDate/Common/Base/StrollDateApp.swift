@@ -11,7 +11,7 @@ import SwiftUI
 struct StrollDateApp: App {
     var body: some Scene {
         WindowGroup {
-            MatchesView()
+            MainTabBarView()
         }
     }
 }
