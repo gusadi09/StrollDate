@@ -57,9 +57,6 @@ struct MainTabBarView: View {
             .ignoresSafeArea()
             
             HStack {
-                
-                Spacer()
-                
                 Button(action: {
                     viewModel.page = .cards
                 }, label: {
@@ -128,10 +125,8 @@ struct MainTabBarView: View {
                     }
                 })
                 
-                Spacer()
-                
             }
-            .padding(.horizontal, 5)
+            .padding(.horizontal, 30)
             .padding(.top, 8)
             .background(Color(._0_F_1115))
             .shadow(color: ._050505, radius: 25, x: 0, y: -15)
