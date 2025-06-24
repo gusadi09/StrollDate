@@ -64,7 +64,21 @@ struct MainTabBarView: View {
                     viewModel.page = .cards
                 }, label: {
                     VStack {
-                        Image(viewModel.page == .cards ? .cardActive : .cardInactive)
+                        ZStack(alignment: .topTrailing) {
+                            Image(viewModel.page == .cards ? .cardActive : .cardInactive)
+                            
+                            Text("10")
+                                .font(.proximaNova(.bold, size: 7))
+                                .foregroundStyle(.black)
+                                .padding(.vertical, 2)
+                                .padding(.horizontal, 4)
+                                .background(Color(.B_5_B_2_FF))
+                                .clipShape(Capsule())
+                                .overlay {
+                                    Capsule()
+                                        .stroke(Color(._0_F_1115), style: StrokeStyle(lineWidth: 1))
+                                }
+                        }
                         
                         Text("Cards")
                             .font(.proximaNova(.bold, size: 10))
